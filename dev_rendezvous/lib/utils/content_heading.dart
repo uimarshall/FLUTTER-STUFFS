@@ -1,4 +1,4 @@
-import 'package:dev_rendezvous/styles/text_styles.dart';
+import '../styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ContentHeadingWidget extends StatelessWidget {

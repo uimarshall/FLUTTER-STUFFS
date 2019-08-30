@@ -1,8 +1,12 @@
-import 'package:dev_rendezvous/styles/text_styles.dart';
-import 'package:dev_rendezvous/utils/content_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dev_rendezvous/utils/rounded_img.dart';
+import '../model/friends.dart';
+import '../styles/text_styles.dart';
+import '../utils/content_heading.dart';
+
+import '../utils/rounded_img.dart';
+import '../model/last_course_studied.dart';
+import '../utils/last_studied_book_tile.dart';
 import '../image_asset.dart';
 import '../styles/colors.dart';
 
@@ -57,6 +61,7 @@ class LandingPage extends StatelessWidget {
                     horizontal: 16.0,
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -133,9 +138,34 @@ class LandingPage extends StatelessWidget {
                       ),
                       // ====================Content Heading==================
                       ContentHeadingWidget(
-                        heading: 'LAST BOOKS STUDIED',
+                        heading: "Last Books Studied",
+                      ),
+                      for (var i = 0; i < lastStudiedCourses.length; i++)
+                        LastStudiedBookTile(
+                          lastStudiedCourse: lastStudiedCourses[i],
+                          screenWidth: screenWidth,
+                          studyProgress: lastStudiedCourses[i].studyProgress,
+                        ),
+                      ContentHeadingWidget(
+                        heading: "Friends",
                       ),
                     ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Row(
+                      children: <Widget>[
+                        for (var i = 0; i < friends.length; i++)
+                          RoundedImageWidget(
+                            imagePath: friends[i].imagePath,
+                            isOnline: friends[i].isOnline,
+                            name: friends[i].name,
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ],

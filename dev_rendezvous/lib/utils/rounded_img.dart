@@ -16,7 +16,7 @@ class RoundedImageWidget extends StatelessWidget {
       {Key key,
       @required this.imagePath,
       this.showRanking = false,
-      @required this.ranking,
+      this.ranking,
       this.name = '',
       this.isOnline = false})
       : super(key: key);
