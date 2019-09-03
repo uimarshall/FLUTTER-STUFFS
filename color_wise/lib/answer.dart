@@ -15,6 +15,7 @@ class Answer extends StatelessWidget {
         child: Text(answerText),
         // Whatever is received as props from the parent Class(main.dart) is stored in 'selectHandler'
         // onPressed points to the 'answerQuestion()' fn wtout parenthesis
+        // 'selectHandler' takes u to the next question as def by d 'answerQuestion' mtd
         onPressed: selectHandler,
       ),
     );
